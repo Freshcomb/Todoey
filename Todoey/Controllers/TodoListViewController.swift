@@ -128,8 +128,6 @@ class TodoListViewController: UITableViewController {
         
     }
     
-   
-    
 }
 
 //MARK: - Search Bar Methods
@@ -140,7 +138,7 @@ extension TodoListViewController: UISearchBarDelegate {
         
         let request : NSFetchRequest<Item> = Item.fetchRequest()
         
-        request.predicate = NSPredicate(format: "title CONTAINS[cd] %@", searchBar.text!)
+        let predicate = NSPredicate(format: "title CONTAINS[cd] %@", searchBar.text!)
         
         request.sortDescriptors = [NSSortDescriptor(key: "title", ascending: true)]
         
